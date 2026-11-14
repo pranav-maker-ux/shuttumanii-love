@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sorry Ponnu 🥺💗</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    background: linear-gradient(135deg, #ffd6e2, #ffc1d5, #ffe8ef);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 12px;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 550px;
+    background: rgba(255,255,255,0.9);
+    padding: 30px 22px;
+    border-radius: 28px;
+    text-align: center;
+    box-shadow: 0 10px 40px #d45b8540;
+    position: relative;
+    z-index: 2;
+}
+
+h1 {
+    color: #d6336c;
+    font-size: 38px;
+    margin: 20px 0;
+}
+
+.subtitle {
+    color: #b83260;
+    font-size: 19px;
+    margin-bottom: 20px;
+}
+
+.heart {
+    font-size: 85px;
+    animation: heartbeat 1.2s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+.emojis {
+    font-size: 30px;
+    line-height: 1.8;
+    margin: 15px 0;
+}
+
+.message {
+    background: #fff0f5;
+    padding: 20px;
+    margin: 18px 0;
+    border-radius: 18px;
+    color: #91415d;
+    font-size: 17px;
+    line-height: 1.8;
+    text-align: center;
+}
+
+.message h2 {
+    color: #d6336c;
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+.special {
+    color: #d6336c;
+    font-size: 26px;
+    font-weight: bold;
+    margin: 25px 0;
+}
+
+.music-button {
+    border: none;
+    background: #e75480;
+    color: white;
+    padding: 15px 25px;
+    font-size: 17px;
+    border-radius: 30px;
+    cursor: pointer;
+    margin: 15px;
+}
+
+.music-button:hover {
+    background: #c93665;
+}
+
+.floating {
+    position: fixed;
+    top: -50px;
+    font-size: 25px;
+    animation: fall linear forwards;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(360deg);
+    }
+}
+
+footer {
+    margin-top: 25px;
+    color: #a34a68;
+    font-size: 13px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="emojis">
+        🥺 😭 💔 😢 🥹
+    </div>
+
+    <div class="heart">💗</div>
+
+    <h1>Sorry Ponnu 🥺</h1>
+
+    <p class="subtitle">
+        I'm really really sorry 😭
+    </p>
+
+    <!-- First remaining message -->
+
+    <div class="message">
+        <h2>💔 You mean so much to me</h2>
+
+        I can't imagine my days without
+        your smile, your talks and all
+        our little moments together.
+        You are really special to me. 🥹
+    </div>
+
+    <div class="special">
+        I MISS YOU PONNU 😭💗
+    </div>
+
+    <!-- Second remaining message -->
+
+    <div class="message">
+        <h2>😭 One more thing...</h2>
+
+        I just want you to know how
+        much you mean to me.
+        Every little moment with you
+        is precious to me.
+        I really wish we could
+        smile and talk again. 🥺💗
+    </div>
+
+    <div class="emojis">
+        😭😭😭😭😭<br>
+        🥺🥺🥺🥺🥺<br>
+        💔💔💔💔💔
+    </div>
+
+    <h1>SO SORRYYYY PONNU! 💗</h1>
+
+    <div class="emojis">
+        🥹 💗 🥺 😭 💕
+    </div>
+
+    <!-- Music player -->
+
+    <button class="music-button"
+    onclick="toggleMusic()" id="musicButton">
+
+        ▶ Play Our Song 🎵
+
+    </button>
+
+    <audio id="song" loop>
+        <source src="song.mp3" type="audio/mpeg">
+    </audio>
+
+    <footer>
+        Made with lots of love, hope and sincere apologies 🥺💗
+    </footer>
+
+</div>
+
+<script>
+
+const song = document.getElementById("song");
+
+const musicButton =
+document.getElementById("musicButton");
+
+function toggleMusic() {
+
+    if (song.paused) {
+
+        song.play().then(() => {
+
+            musicButton.innerHTML =
+            "⏸ Pause Song 🎵";
+
+        }).catch(() => {
+
+            alert("Please upload song.mp3 to your GitHub repository!");
+
+        });
+
+    } else {
+
+        song.pause();
+
+        musicButton.innerHTML =
+        "▶ Play Our Song 🎵";
+
+    }
+}
+
+// Falling emojis animation
+
+const emojis = [
+    "🥺", "😭", "💔", "😢", "🥹", "💗"
+];
+
+setInterval(() => {
+
+    const emoji = document.createElement("div");
+
+    emoji.className = "floating";
+
+    emoji.innerHTML =
+    emojis[Math.floor(Math.random() * emojis.length)];
+
+    emoji.style.left =
+    Math.random() * 100 + "vw";
+
+    emoji.style.animationDuration =
+    (Math.random() * 3 + 4) + "s";
+
+    document.body.appendChild(emoji);
+
+    setTimeout(() => {
+
+        emoji.remove();
+
+    }, 7000);
+
+}, 450);
+
+</script>
+
+</body>
+</html>
